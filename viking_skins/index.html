@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@v0.172.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.172.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="./scripts/canvas.js" defer></script>
+    <script type="module" src="./scripts/main.js" defer></script>
+    <title>Viking Skin Generator</title>
+</head>
+<body>
+    <header>
+        <div id="logo">
+            LOGO
+        </div>
+        <div id="files">
+            <div id="uploadButtonDiv" class="genericButton ">
+                <input type="file" name="uploadButton" accept="image/png" id="uploadButton" class="button__invisible" value="./parts/2_empty.png">
+                <label for="uploadButton">
+                    Upload Your Skin
+                </label>
+            </div>
+            <div id="downloadButton" class="genericButton">
+                Download Your Skin
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="selection" class="mainSection genericFrame scrollableFrame">
+
+            <details open class="selectionCategory">
+                <summary>Model</summary>
+                <article>
+                    <div class="playerModel genericButton" id="chooseSteveButton">Steve</div>
+                    <div class="playerModel genericButton" id="chooseAlexButton">Alex</div>
+                </article>
+            </details>
+
+            <details class="selectionCategory">
+                <summary>Base Layer</summary>
+                <article>
+                    <div class="selectableElement alexArmSizeElement genericButton" data-skin-link="./parts/short_tunic_alex.png">Short Tunic</div>
+                    <div class="selectableElement alexArmSizeElement genericButton" data-skin-link="./parts/tunic_alex.png">Tunic</div>
+                    <div class="selectableElement alexArmSizeElement genericButton" data-skin-link="./parts/dress_alex.png">Dress</div>
+
+                    <div class="selectableElement steveArmSizeElement genericButton" data-skin-link="./parts/short_tunic_steve.png">Short Tunic</div>
+                    <div class="selectableElement steveArmSizeElement genericButton" data-skin-link="./parts/tunic_steve.png">Tunic</div>
+                    <div class="selectableElement steveArmSizeElement genericButton" data-skin-link="./parts/dress_steve.png">Dress</div>
+                </article>
+            </details>
+
+            <details class="selectionCategory">
+                <summary>Body Armour</summary>
+                <article>
+                    <div class="selectableElement alexArmSizeElement genericButton" data-skin-link="./parts/light_armour_alex.png">Light Armour</div>
+                    <div class="selectableElement alexArmSizeElement genericButton" data-skin-link="./parts/medium_armour_alex.png">Medium Armour</div>
+                    <div class="selectableElement alexArmSizeElement genericButton" data-skin-link="./parts/heavy_armour_alex.png">Heavy Armour</div>
+
+                    <div class="selectableElement steveArmSizeElement genericButton" data-skin-link="./parts/light_armour_steve.png">Light Armour</div>
+                    <div class="selectableElement steveArmSizeElement genericButton" data-skin-link="./parts/medium_armour_steve.png">Medium Armour</div>
+                    <div class="selectableElement steveArmSizeElement genericButton" data-skin-link="./parts/heavy_armour_steve.png">Heavy Armour</div>
+
+                    <div class="selectableElement genericButton" data-skin-link="./parts/belt.png">Belt</div>
+                </article>
+            </details>
+
+            <details class="selectionCategory">
+                <summary>Helmet</summary>
+                <article>
+                    <div class="selectableElement genericButton" data-skin-link="./parts/light_helmet.png">Light Helmet</div>
+                    <div class="selectableElement genericButton" data-skin-link="./parts/medium_helmet.png">Medium Helmet</div>
+                    <div class="selectableElement genericButton" data-skin-link="./parts/heavy_helmet.png">Strong Helmet</div>
+                    <div class="selectableElement genericButton" data-skin-link="./parts/super_heavy_helmet.png">Heavy Helmet</div>
+                </article>
+            </details>
+
+        </section>
+        <section id="preview" class="mainSection genericFrame">
+            <article id="modelPreview">
+                <div id="modelPreviewDiv"></div>
+                <input type="range" name="modelPreviewRotation" id="modelPreviewRotation" min="-180" max="180">
+            </article>
+            <article id="texturePreview">
+                <div class="texturePreviewDiv">
+                    <h3>Base Skin</h3>
+                    <canvas id="texturePreviewBasedSkin" width="64" height="64"></canvas>
+                </div>
+                <div class="texturePreviewDiv">
+                    <h3>Finished Skin</h3>
+                    <canvas id="textureFinishedSkin" width="64" height="64"></canvas>
+                    <canvas id="textureModelPreview" class="hidden" width="64" height="64"></canvas>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer></footer>
+</body>
+</html>
